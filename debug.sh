@@ -5,13 +5,13 @@ if [ -f "$1" ]; then
 	sleep 1s # Let QEMU start-up
 	
 	# 2nd: Run GDB
-	if [-f "$2" ]; then
+	if [ -f "$2" ]; then
 		path = "$2"
 	else
 		path="$(echo "$1" | sed 's/\(.*\)\/\(kernel.img\)/\1/')"
 		path="$path/build/output.elf"
 
-		if [!-f $path ]; then
+		if [ ! -f $path ]; then
 			echo 'Elf file not found'
 			exit 1
 		fi
